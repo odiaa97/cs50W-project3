@@ -1,0 +1,42 @@
+{% extends "orders/base.htm" %}
+
+{% block content %}
+
+<div class="text-center" style="padding:50px 0">
+    {% if message %}
+    <div>
+        {{ message }}
+    </div>
+    {% endif %}
+	<div class="logo">login</div>
+	<!-- Main Form -->
+	<div class="login-form-1">
+		<form id="login-form" class="text-left" action="{% url 'login_view' %}" method="post">
+            {% csrf_token %}
+			<div class="login-form-main-message"></div>
+			<div class="main-login-form">
+				<div class="login-group">
+					<div class="form-group">
+						<input type="text" class="form-control" name="username" placeholder="Username">
+					</div>
+					<div class="form-group">
+						<input type="password" class="form-control" name="password" placeholder="Password">
+					</div>
+					<div class="form-group login-group-checkbox">
+						<input type="checkbox" name="remember">
+						<label for="remember">remember</label>
+					</div>
+                </div>
+                    <button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
+			</div>
+			<div class="etc-login-form">
+				<p>forgot your password? <a href="#">click here</a></p>
+				<p>new user? <a href="/register">create new account</a></p>
+			</div>
+		</form>
+        </div>
+        <!-- end:Main Form -->
+    </div>
+
+
+{% endblock %}
